@@ -11,7 +11,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script>
-        const heading=React.createElement('h1',{},"Hello EveryOne");
+        const heading=React.createElement('div',{id:"heading"},[React.createElement('h1',{},"Hello EveryOne"),React.createElement('p',{},"Hope you all are doing great")]);
         const root=ReactDOM.createRoot(document.getElementById('root'));
         root.render(heading);
     </script>
