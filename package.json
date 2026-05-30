@@ -1,0 +1,35 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "creating own production level project using parcel",
+  "keywords": [
+    "priya",
+    "React"
+  ],
+  "homepage": "https://github.com/Priya2247/React-Practice#readme",
+  "bugs": {
+    "url": "https://github.com/Priya2247/React-Practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Priya2247/React-Practice.git"
+  },
+  "license": "ISC",
+  "author": "Priyadharshini Sekar",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+  "browserslist" :[
+    "last 2 version"
+  ]
+}
