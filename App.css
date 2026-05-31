@@ -1,0 +1,48 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border:1px solid black;
+}
+
+.nav-items>ul{
+    display: flex;
+    list-style: none;
+}
+
+.logo-container{
+    margin:10px;
+}
+
+.logo{
+    width:100px;
+}
+ul>li{
+    margin:10px;
+    font-size: 20px;
+
+}
+
+.card-container{
+    display: flex;
+}
+
+.card-item{
+    margin:10px;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    border:1px solid orange;
+    background-color: rgb(228, 204, 159);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: brown;
+}
+
+.card-img{
+    width: 100%;
+}
+
+.card-item:hover{
+   border:1px solid black;
+  
+
+}
