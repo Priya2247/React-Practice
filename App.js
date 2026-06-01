@@ -30,12 +30,12 @@ const Header = () =>{
     );
 }
 
-const CardItem = () =>{
+const CardItem = (props) =>{
     return (
         <div className='card-item'>
             <img className='card-img'  src={VikaBiriyani} alt='Ordering Food img' ></img>
-            <h2>Vika's Food</h2>
-            <h3>Rating : 4.3</h3>
+            <h2>{props.resName}</h2>
+            <h3>{props.rating}</h3>
             <h6>Arrive in 30 mins</h6>
         </div>
     );
@@ -44,10 +44,10 @@ const CardItem = () =>{
 const Body = () =>{
     return(
     <div className='card-container'>
-        <CardItem/>
-        <CardItem/>
-        <CardItem/>
-        <CardItem/>
+        <CardItem resName="Hema's Food" rating="4.9"/>
+        <CardItem resName="Burma Burger" rating="3.5"/>
+        <CardItem resName="KFC" rating="3.8"/>
+        <CardItem resName="Chaat Tadka" rating="2.7"/>
     </div>
     );
 }
