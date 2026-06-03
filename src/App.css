@@ -65,7 +65,12 @@ ul>li{
 }
 
 
-
+.filter-btn{
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgb(161, 247, 161);
+    color: #3d404e;
+}
 
 .card-container {
     display: flex;
@@ -82,7 +87,7 @@ ul>li{
     border-radius: 10px;
     width: 250px;
     color:rgb(58, 52, 52);
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
    }
 
 
