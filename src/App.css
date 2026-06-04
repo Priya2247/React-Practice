@@ -67,11 +67,17 @@ ul>li{
 
 .filter-btn{
     margin: 10px;
+    padding: 10px;
     border-radius: 5px;
     background-color: rgb(161, 247, 161);
     color: #3d404e;
+    border: none;
 }
 
+.filter-btn:hover{
+    cursor: pointer;
+    border: 2px solid rgb(112, 253, 112);
+}
 .card-container {
     display: flex;
     flex-wrap: wrap;       /* Allows cards to drop to the next line */
