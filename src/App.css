@@ -42,6 +42,12 @@ ul>li{
     cursor: pointer;
 }
 
+.nav-items{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
 .nav-items > ul {
     display: flex;
     list-style: none;
@@ -62,6 +68,21 @@ ul>li{
 /* Interactive feedback when hovering over navigation items */
 .nav-items ul li:hover {
     color: #fc8019;    /* Swiggy's signature orange color on hover */
+}
+
+.login-btn{
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #fc8019;
+    color:#fff;
+    border:none;
+}
+
+.login-btn:hover{
+    cursor: pointer;
+    background-color: #fcb721;
 }
 
 
