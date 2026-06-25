@@ -137,6 +137,15 @@ ul>li{
 
 }
 
+.shimmercard-UI{
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+    background-color: rgb(202, 201, 201);
+    margin: 10px;
+}
+
+
 .footer{
     font-family: 'Courier New', Courier, monospace;
     color:#3d4152;
