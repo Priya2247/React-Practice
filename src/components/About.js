@@ -5,33 +5,39 @@ import DummyCard2 from "./DummyCard2";
 class About extends Component{
     constructor(){
         super();
-        console.log("called first thankyou");
-        this.state = {
-            count:0
+        this.state={
+            UserInfo:{
+                avatar_url:"Priya",
+                created_at:"XXXX",
+                following:"yyyy"
+            }
         }
     }
+
     render(){
-        console.log("rendered");
+        console.log(this.state.UserInfo);
+        const {avatar_url,created_at,following} = this.state.UserInfo;
         return (
             <div>
-                <button onClick={()=>{
-                    this.setState({
-                        count:this.state.count+1
-                    })
-                }}>Click me</button>
-                <h1>{this.state.count}</h1>
-                <DummyCard/>
-                <DummyCard/>
-                <DummyCard2/>
-                <DummyCard2/>
+                <img src={avatar_url}></img>
+                <h1>{created_at}</h1>
+                <h1>{following}</h1>
+                {/* <DummyCard/>
+                <DummyCard2/> */}
             </div>
-        );
+        )
     }
 
-    componentDidMount(){
-        console.log("called last thankyou");
+     async componentDidMount(){
+        const Data = await fetch("https://api.github.com/users/Priya2247");
+        const json = await Data.json();
+        console.log(json);
+        this.setState({UserInfo:json});
     }
 
+    componentDidUpdate(){
+        console.log("Component Updated");
+    }
 }
 
 export default About;
