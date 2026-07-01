@@ -8,13 +8,17 @@ import About from './components/About';
 import Orders from './components/Orders';
 import Cart from './components/Cart';
 import MenuPage from './components/MenuPage';
+import Error from './components/Error';
 
 import { createBrowserRouter,RouterProvider, Outlet } from 'react-router';
+import useOnlineStatus from './components/useOnlineStatus';
+import OfflinePage from './components/OfflinePage';
 
 
 
 
 const root=ReactDOM.createRoot(document.getElementById('root'));
+
 
 /* Design 
    -- Header +> Logo , NavItems
@@ -23,10 +27,11 @@ const root=ReactDOM.createRoot(document.getElementById('root'));
 */
 
 const App = () =>{
+    const onlineStatus = useOnlineStatus();
     return (
         <>
         <Header />
-        <Outlet/>
+        {onlineStatus? <Outlet/> : <OfflinePage/>}
         <Footer />
         </>
     );
@@ -39,7 +44,7 @@ const appRoute = createBrowserRouter([
             children:[
                 {
                     path:'/',
-                    element:<Body/>
+                    element:<Body/>,
                 },
                 {
                     path:'/about',
@@ -57,8 +62,8 @@ const appRoute = createBrowserRouter([
                     path:'/restaurants/:resID',
                     element:<MenuPage/>
               }
-
-           ]
+           ],
+           errorElement:<Error/>
         }
 ]);
 

@@ -4,6 +4,7 @@ import { useState , useEffect } from "react";
 import { SWIGGY_URL } from "../utils/constants";
 import { Link } from "react-router";
 import ShimmerUI from "./Shimmer";
+import OfflinePage from "./OfflinePage";
 
 
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 
-import resList from "../utils/restaurantList"
 import { RESTAURANT_URL} from "../utils/constants";
 import ShimmerUI from "./Shimmer";
 
@@ -17,7 +16,7 @@ const MenuPage = () =>{
     const fetchData=async()=>{
         const menuData = await fetch(RESTAURANT_URL+resID);
         console.log("Status:", menuData.status);
-        const json=await menuData.json();
+        const json= menuData;
 
         console.log(json);
         setMenuList(json); 
@@ -27,6 +26,8 @@ const MenuPage = () =>{
     const MenuItems = MenuList?.data?.cards[4]?.groupedCard?.cardGroupedMap?.regular?.cards?.slice(1);
 
     return(
+        MenuList.length==0? <ShimmerUI/> 
+           :
         <div>
             <h1>{MenuList?.data?.cards[2]?.card?.card?.info?.name}</h1>
             <h2>{MenuList?.data?.cards[2]?.card?.card?.info?.city}</h2>
