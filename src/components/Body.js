@@ -36,17 +36,11 @@ const Body = () =>{
     
     return(
         <> 
-          <div className="filters">
-            <button className="filter-btn" onClick={()=>{
-                const filteredList = RestaurantList.filter((Restaurant)=> Restaurant?.card?.card?.info?.avgRating>4.5);
-                setFilteredList(filteredList);
-                }}>
-                    Top Restaurants
-            </button>
+          <div className="flex m-6 text-white align-middle items-center justify-between">
+            <div>
+            <input value={searchText} placeholder="Search For Restaurants......" className="border-[1] rounded-sm border-gray-800 w-md mr-2 pl-2  text-black" onChange={(e)=> setSearchText(e.target.value)}></input>
 
-            <input value={searchText} onChange={(e)=> setSearchText(e.target.value)}></input>
-
-            <button className="search-btn"  onClick={()=>{
+            <button className="bg-orange-600 rounded-md px-4 py-1 mr-2 cursor-pointer"  onClick={()=>{
                 if(searchText.trim() === ""){
                     setFilteredList(RestaurantList);
                     return;
@@ -56,9 +50,18 @@ const Body = () =>{
                 setFilteredList(filteredList);
             }}>
                 search
+            </button> 
+            </div>
+
+             <button className="bg-linear-to-tl from-green-950 to-lime-600 px-4 py-2 mx-4 rounded-md cursor-pointer" onClick={()=>{
+                const filteredList = RestaurantList.filter((Restaurant)=> Restaurant?.card?.card?.info?.avgRating>4.5);
+                setFilteredList(filteredList);
+                }}>
+                    Top Restaurants
             </button>
+
           </div>
-           <div className='card-container'>
+           <div className='flex flex-wrap'>
                 {
                      RestaurantList.length===0 ? Array(15).fill("").map((_,index) => <ShimmerUI key={index}></ShimmerUI>)
                      :
