@@ -16,10 +16,6 @@ import OfflinePage from './components/OfflinePage';
 
 
 
-
-const root=ReactDOM.createRoot(document.getElementById('root'));
-
-
 /* Design 
    -- Header +> Logo , NavItems
    -- Body => Search , Card Container , Card items
@@ -29,11 +25,11 @@ const root=ReactDOM.createRoot(document.getElementById('root'));
 const App = () =>{
     const onlineStatus = useOnlineStatus();
     return (
-        <>
+        <div>
         <Header />
         {onlineStatus? <Outlet/> : <OfflinePage/>}
         <Footer />
-        </>
+        </div>
     );
 }
 
@@ -67,8 +63,7 @@ const appRoute = createBrowserRouter([
         }
 ]);
 
-
-
+const root=ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={appRoute}/>);
 
 // root.render(<App/>);
