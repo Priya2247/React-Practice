@@ -3,28 +3,27 @@ import CLOUDINARY_URL from "../utils/constants";
 const MenuCard = ({MenuData}) =>{
     const menu = MenuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(1);
     const [openIndex, setOpenIndex] = useState(null);
-    const [openItemIndex, setOpenItemIndex] = useState(null);
+
     return (
         <div className="font-semibold">
             { 
                 menu.map((category, index)=>(
-                    <div key={index} className="w-8/12 my-1.5 p-1.5 mx-auto bg-gray-300 rounded-sm cursor-pointer">
-
-                        <h1 className="text-xl text-center" onClick={()=>setOpenIndex(openIndex==index?null:index)}>{category.card.card.title}</h1>
-                        {openIndex==index &&
-                           category.card.card.itemCards.map((item)=>(
-                                <div key={item.card.info.id}>
-                                    <p className="m-2 p-2 border border-white bg-white" onClick={()=>setOpenItemIndex(openItemIndex==null?item.card.info.id:null)}>{item.card.info.name}</p>
-                                    {
-                                        openItemIndex === item.card.info.id &&
-                                        <div className="flex justify-between m-2 p-2">
-                                            <div>
-                                                <p>{item.card.info.description}</p>
-                                                <p>{"Price : $"+item.card.info.price/100}</p>
-                                            </div>
-                                            <img className="w-1/4 rounded-md" src={CLOUDINARY_URL+item.card.info.imageId}/>
+                    <div key={index} className="w-7/12 my-1.5 p-1.5 mx-auto bg-gray-200 rounded-sm cursor-pointer">
+                        <div className="flex justify-between px-4" onClick={()=>setOpenIndex(openIndex==index? null : index)}>
+                            <h1 className="text-xl " >{category?.card?.card?.title}</h1>
+                            <div>{openIndex==index?'▲' : '▼'}</div>
+                        </div>
+                        {openIndex === index &&
+                           category?.card?.card?.itemCards?.map((item)=>(
+                                <div key={item?.card?.info?.id} className="mx-3 border-b-gray-400" >
+                                    <div className="flex justify-between p-2 bg-white border-b border-b-gray-200">
+                                        <div className="w-8/12">
+                                            <p className="text-xl">{item?.card?.info?.name}</p>
+                                            <p className="text-xl">{"Price : ₹"+item?.card?.info?.price/100}</p>
+                                            <p className="text-sm">{item?.card?.info?.description}</p>
                                         </div>
-                                    }
+                                        <img className="w-4/12 rounded-md" src={CLOUDINARY_URL+item?.card?.info?.imageId}/>
+                                    </div>
                                 </div>
                            ))
                         }

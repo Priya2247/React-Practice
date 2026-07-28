@@ -1,10 +1,11 @@
 import CardItem, { AddDiscount } from "./CardItem";
 import resList from "../utils/restaurantList";
-import { useState , useEffect } from "react";
+import { useState , useEffect, useContext } from "react";
 import { SWIGGY_URL } from "../utils/constants";
 import { Link } from "react-router";
 import ShimmerUI from "./Shimmer";
 import OfflinePage from "./OfflinePage";
+import UserContext from "./UserContext";
 
 
 
@@ -14,6 +15,8 @@ const Body = () =>{
     const [RestaurantList,setRestaurantList]=useState([]);
     const [FilteredList, setFilteredList]=useState([]);
     const [searchText, setSearchText]=useState("");
+
+    const {setUserName} = useContext(UserContext);
 
     const fetchData=async()=>{
         const Data=await fetch(SWIGGY_URL);
@@ -38,7 +41,7 @@ const Body = () =>{
     
     return(
         <> 
-          <div className="flex m-6 text-white text-shadow-gray-950 align-middle items-center justify-between">
+          <div className="flex m-6 text-white text-shadow-gray-950 align-middle items-center gap-2">
             <div>
 
             <input value={searchText} placeholder="Search For Restaurants......" className="border-[1] rounded-sm border-gray-800 w-md mr-2 pl-2  text-black" onChange={(e)=> setSearchText(e.target.value)}></input>
@@ -61,7 +64,12 @@ const Body = () =>{
                 }}>
                     Top Restaurants
                 </button>
+            <div>
+                <label className="text-gray-700">UserName : </label>
+                <input className="border text-black rounded-sm" onChange={(e)=>{setUserName(e.target.value)}}></input>
             </div>
+            </div>
+            
 
            <div className='flex flex-wrap'>
                 {
